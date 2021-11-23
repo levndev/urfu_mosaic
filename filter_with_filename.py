@@ -10,18 +10,10 @@ def crop_img(pixels, distance):
                   :len(pixels[0]) - width_overflow]
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument("input", type=str, help="path to image")
-parser.add_argument("--output", dest="output", type=str, help="path to result image", default="res.jpg")
-parser.add_argument("--size", dest="size", type=int, help="mosaic size", default=10)
-parser.add_argument("--gradations", dest="gradation_count", type=int, help="How many gray gradations will there be in the result image", default=4)
-args = parser.parse_args()
-
-img = Image.open(args.input)
-mosaic_size = args.size
-gradation = args.gradation_count
-res_file = args.output
-
+img = Image.open("test_img.jpg")
+mosaic_size = 10
+gradation = 50
+res_file = "res.jpg"
 pixels = np.array(img)
 gradation_step = 256 / gradation
 
